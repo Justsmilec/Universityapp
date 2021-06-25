@@ -1,0 +1,33 @@
+<div class="create-post-cont">
+
+
+        <h1 class="a11y-hidden">Signup Form</h1>
+        <div class="wrapper">
+        
+            <div>
+              <label class="label-username">
+                <input type="text" class="text" name="username" placeholder="Username" tabindex="1"   [value] = "user.username" [(ngModel)]="username" required />
+                <span class="required">Username</span>
+              </label>
+            </div>
+    
+    
+    
+            <div>
+                <span class="required">Image</span>
+                <div class="col-md-6">
+                  <input type="file" (change)="updateFile($event)">
+                </div>
+                      <div class="col-md-12">
+                          <img [src]="url" alt="">                   
+                      </div>
+            </div>
+    
+          
+        </div>
+        
+</div>
+
+<div class="submit-login">
+    <button (click) = "onSubmit()" value="Login">Update Profile</button>
+  </div>

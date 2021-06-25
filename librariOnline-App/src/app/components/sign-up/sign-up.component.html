@@ -1,0 +1,132 @@
+<div class="login-container">
+
+  <div class="login-form">
+
+    <h1 class="a11y-hidden">Signup Form</h1>
+    <div class="wrapper">
+      <div class="left-part">
+        <div>
+          <label class="label-name">
+            <input type="text" class="text" name="name" placeholder="Name" tabindex="1" [(ngModel)]="name" required />
+            <span class="required">Name</span>
+          </label>
+          
+        </div>
+        <div>
+          <label class="label-username">
+            <input type="text" class="text" name="username" placeholder="Username" tabindex="1"   [(ngModel)]="username" required />
+            <span class="required">Username</span>
+          </label>
+        </div>
+        <div>
+          <label class="label-email">
+            <input type="text" class="text" name="email" placeholder="Email" tabindex="1"  [(ngModel)]="email" required />
+            <span class="required">Email</span>
+          </label>
+        </div>
+        <div>
+          <label class="label-email">
+            <input type="number" class="text" name="age" placeholder="Age" tabindex="1" required  [(ngModel)]="age" />
+            <span class="required">Age</span>
+          </label>
+        </div>
+
+        <div>
+          <label class="label-password">
+            <input type="text" class="text" name="password" placeholder="Password" tabindex="2" required  [(ngModel)]="password" />
+            <span class="required">Password</span>
+          </label>
+        </div>
+        <input type="checkbox" name="show-password" class="show-password a11y-hidden" id="show-password" tabindex="3" />
+        <label class="label-show-password" for="show-password">
+          <span>Show Password</span>
+        </label>
+
+      </div>
+
+
+
+
+      <div class="right-part">
+        <div>
+          <label class="label-name">
+            <span class="required">University</span>
+
+            <select (change)="selectOption($event)" class="text" name="universityName" id="" tabindex="1" required placeholder="University"  [(ngModel)]="universityName">
+              <option *ngFor = "let univdto of universityDTO" type="text" class="text" [value]="univdto.id">
+                {{univdto.name}}
+
+              </option>
+            
+
+            </select>
+
+          </label>
+        </div>
+        <div>
+          <label class="label-name">
+            <span class="required">Faculty</span>
+
+            <select  (change)="selectFacultyOption($event)" class="text" name="facultyName" id="" tabindex="1" required placeholder="Faculty"  [(ngModel)]="facultyName">
+              <option *ngFor = "let facDto of facultyDTO" [value] = "facDto.id" type="text" class="text">
+                  {{facDto.name}}
+              </option>
+              
+
+            </select>
+
+          </label>
+        </div>
+        <div>
+          <label class="label-email">
+            <span class="required">Course</span>
+
+            <select  class="text" name="actualClass" id="" tabindex="1" required placeholder="Course"  [(ngModel)]="actualClass">
+              <option *ngFor = "let course of courses"  [value] = "course.id" type="text" class="text">
+                  {{course.name}}
+              </option>
+              
+
+            </select>
+
+          </label>
+        </div>
+        <div>
+          <label class="label-email">
+            <input type="number" class="text" name="actualSemester" placeholder="Semester" tabindex="1"   [(ngModel)]="actualSemester" required />
+            <span class="required">Semester</span>
+          </label>
+        </div>
+
+        <div>
+            <span class="required">Image</span>
+            <div class="col-md-6">
+              <input type="file" (change)="updateFile($event)">
+            </div>
+                  <div class="col-md-12">
+                      <img [src]="url" alt="">                   
+                  </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="submit-login">
+      <button (click) = "onSubmit()" value="Login">Sign Up</button>
+    </div>
+    <div class="email">
+      <span>Do you have an account? <a href="">Login</a></span>
+    </div>
+    <figure aria-hidden="true">
+      <div class="person-body"></div>
+      <div class="neck skin"></div>
+      <div class="head skin">
+        <div class="eyes"></div>
+        <div class="mouth"></div>
+      </div>
+      <div class="hair"></div>
+      <div class="ears"></div>
+      <div class="shirt-1"></div>
+      <div class="shirt-2"></div>
+    </figure>
+  </div>
+</div>

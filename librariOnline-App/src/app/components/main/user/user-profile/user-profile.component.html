@@ -1,0 +1,52 @@
+<app-friends-pop-up 
+   [displayPopUp] = "showFriendsPopUp"
+   (callParent)="getMsgFromBaby($event)"
+   [users] = "user"
+></app-friends-pop-up>                
+
+<div  class="container" style="background-color: aqua;">
+
+    <div class="row">
+       <div class="col-md-12">
+          <div id="content" class="content content-full-width">
+             <div class="profile">
+                <div class="profile-header">
+                   <div class="profile-header-cover"></div>
+                   <div class="profile-header-content">
+                      <div class="profile-header-img">
+                         <img [src]="user.profilePic" alt="">
+                      </div>
+                      <div class="profile-header-info">
+                         <h4 class="m-t-10 m-b-5">{{user.name}}</h4>
+                         <p class="m-b-10">{{user.username}}</p>
+                         <a href="#" class="btn btn-sm btn-info mb-2">Edit Profile</a>
+                      </div>
+                   </div>
+                   <ul class="profile-header-tab nav nav-tabs">
+                      <li class="nav-item"><a href="#profile-post" class="nav-link active show" data-toggle="tab">POSTS</a></li>
+                      <li class="nav-item"><a href="#profile-about" class="nav-link" data-toggle="tab">ABOUT</a></li>
+                      <li class="nav-item"><a (click)="displayCourseList()" class="nav-link" data-toggle="tab">COURSE LIST</a></li>
+                      <li class="nav-item"><a (click) ="createPost()" class="nav-link" data-toggle="tab">CREATE POST</a></li>
+                      <li class="nav-item"><a  (click)="displayFriends()" class="nav-link" data-toggle="tab">FRIENDS</a></li>
+                   </ul>
+                </div>
+             </div>
+             <div class="profile-content">
+                <div class="tab-content p-0">
+                   <div class="tab-pane fade active show" id="profile-post">
+                      <ul class="timeline">          
+                            <app-user-post *ngFor = "let post of userPosts"
+                              [likePostCallBack]="myLikePostCallBack"
+                              [_post] = "post"
+                              
+                            >
+
+                            </app-user-post>
+                      </ul>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>

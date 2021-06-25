@@ -1,0 +1,41 @@
+<div class="login-container">
+
+    <div class="login-form">
+        
+            <h1 class="a11y-hidden">Login1 Form</h1>
+            <div>
+              <label class="label-username">
+                <input type="text" class="text" name="username" placeholder="Email" tabindex="1" required [(ngModel)] = "username"/>
+                <span class="required">Username</span>
+              </label>
+            </div>
+            <input type="checkbox" name="show-password" class="show-password a11y-hidden" id="show-password" tabindex="3" />
+            <label class="label-show-password" for="show-password">
+              <span>Show1 Password</span>
+            </label>
+            <div>
+              <label class="label-password">
+                <input type="text" class="text" name="password" placeholder="Password" tabindex="2" required  [(ngModel)] = "password"/>
+                <span class="required">Password</span>
+              </label>
+            </div>
+            <div class="submit-login">
+                <button  (click) = "checkLogin()" value="Login">Login</button>
+            </div>
+            <div  class="email">
+              <span href="#">Don't have an account? <a  (click) = "signup()">Sign up</a></span>
+            </div>
+            <figure aria-hidden="true">
+              <div class="person-body"></div>
+              <div class="neck skin"></div>
+              <div class="head skin">
+                <div class="eyes"></div>
+                <div class="mouth"></div>
+              </div>
+              <div class="hair"></div>
+              <div class="ears"></div>
+              <div class="shirt-1"></div>
+              <div class="shirt-2"></div>
+            </figure>
+    </div>
+</div>

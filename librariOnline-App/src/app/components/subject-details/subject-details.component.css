@@ -1,0 +1,113 @@
+.course-outside-wrapper{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: green;
+}
+
+.side{
+    width: 20%;
+    height: 100%;
+    background-color: white;
+}
+.left-container{
+    float: left;
+}
+.right-container{
+    width: 25%;
+    float: right;
+    display: flex;
+    justify-content: center;
+}
+.right-wrapper{
+    width: 90%;
+}
+.right-wrapper ul li{
+    margin-top: 10px;
+}
+.center-main-container{
+    float: left;
+    width: 55%;
+    height: 100%;
+    background-color: hotpink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.center-wrapper{
+    width: 97%;
+    height: 97%;
+    background-color: brown;
+    overflow: auto;
+}
+
+.feeds-top{
+    width: 100%;
+    height: 80px;
+}
+
+.feeds-title{
+    float: left;
+    display: flex;
+    align-items: center;
+    width: 30%;
+    height: 100%;
+
+}
+.feeds-title span{
+    margin-left: 5%;
+    font-size: 32px;
+    font-weight: 600;
+}
+.feeds-option{
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 50%;
+    height: 100%;
+}
+.feeds-option a{
+    padding: 4%;
+    background-color: rgb(192, 188, 196);
+    margin-left: 4%;
+    text-decoration: none;
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: black;
+}
+
+.poster{
+    width: 100%;
+    height: 350px;
+    background-color: black;
+}
+
+
+
+.posts{
+    height: 300px;
+}
+
+.map{
+    background-color: blue;
+    height: 350px;
+}
+.attenders{
+    background-color: yellow;
+    min-height: 400px;
+    overflow: auto;
+}
+
+
+.exit-button{
+    width: 100%;
+    height: 5%;
+    background-color: red;
+}
+.friends-list{
+    margin-top:3%;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}

@@ -1,0 +1,48 @@
+.timeline-comment-box {
+    background: #f2f3f4;
+    margin-left: 20px;
+    margin-right: -25px;
+    padding: 20px 25px
+}
+
+.timeline-comment-box .user {
+    width: 34px;
+    height: 34px;
+    overflow: hidden;
+    border-radius: 30px
+}
+
+.timeline-comment-box .user img {
+    max-width: 100%;
+    max-height: 100%
+}
+
+.timeline-comment-box .user+.input {
+    margin-left: 44px
+}
+.txt{
+    width: 100%;
+}
+.lead {
+    margin-bottom: 20px;
+    font-size: 21px;
+    font-weight: 300;
+    line-height: 1.4;
+}
+
+.text-danger, .text-red {
+    color: #ff5b57!important;
+}
+
+
+
+/*ADDED BY ME **/
+
+.replies{
+    margin-left:25px;
+    width: 90%; 
+    background-color: blueviolet;
+}
+.replies-hide{
+    display: none;
+}

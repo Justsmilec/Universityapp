@@ -1,0 +1,71 @@
+<div *ngIf = "!isfriendrequestlist" class="single-element">
+    
+    <div class="profile">
+        <div class="profile-pic">
+            <img src="" alt="">
+            
+        </div>
+
+        <div class="profile-name">
+            <div>{{user.name}}</div>
+            <div>@{{user.username}}</div>
+            <div>@{{loggedInUser.username}}</div>
+
+        </div>
+    </div>
+
+
+   
+
+    <div *ngIf="isFriendWithUser" class="follow">
+        <div class="follow-button">
+            UNFOLLOW
+        </div>
+    </div>
+
+    <div  *ngIf="!isFriendWithUser && !sentRequest" class="follow">
+        <div (click) = "sendFriendRequest(loggedInUser.username,user.username)" class="follow-button">
+            FOLLOW
+        </div>
+    </div>
+
+    <div *ngIf="sentRequest" class="follow">
+        <div (click) = "unsendFriendRequest(loggedInUser.username,user.username)" class="follow-button">
+            PENDING...
+        </div>
+    </div>
+
+</div>
+
+
+
+<div *ngIf = "isfriendrequestlist" class="single-element">
+    
+    <div class="profile">
+        <div class="profile-pic">
+            <img src="" alt="">
+            
+        </div>
+
+        <div class="profile-name">
+            <div>{{user.name}}</div>
+            <div>@{{user.username}}</div>
+            <div>@{{loggedInUser.username}}</div>
+
+        </div>
+    </div>
+
+
+   
+
+
+    <div class="follow">
+        Do you want to accept
+        
+        <div  class="follow-button">
+            <button (click) = "requestAccepted(loggedInUser.username,user.username)" >YES</button>
+            <button (click) = "requestNotAccepted(loggedInUser.username,user.username)">NO</button>
+        </div>
+    </div>
+
+</div>

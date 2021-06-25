@@ -1,0 +1,18 @@
+
+<div class="{{displayPopUp ? 'outter-cont-show' : 'outter-cont-hide'}}">
+    <div class="exit-button" style="position:fixed;" (click)="removePopUp()">
+        <i class="fa fa-times"></i>
+    </div>
+    <div class="friends-list">
+      
+        <ul>
+            <li *ngFor="let friend of users.friends">
+                <app-friendsingle-element [user]="friend"></app-friendsingle-element>
+
+            </li>
+        </ul>
+        
+
+    </div>
+
+</div>

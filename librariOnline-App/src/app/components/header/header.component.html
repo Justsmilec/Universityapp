@@ -1,0 +1,117 @@
+<div class="header-top" >
+    <div class="profile">
+            <div  class="profile-wrapper">
+                <div (click)="mainmenu()"  class="img-cont">
+                    <img [src]="user.profilePic" alt="">
+                </div>
+
+                <div  class="name-text">{{user.name}}</div>
+
+            </div>
+
+
+    </div>
+
+    <div class="list-container">
+       
+            <div class="search">
+                <input type="text" placeholder="Search..">
+
+            </div>
+            <!-- <li (click) = "displayUser()">
+                <span>View Users</span>
+            </li>
+            <li>
+                <span>Add User</span>
+            </li> -->
+            <div class="right-nav">
+                <div class = "icons">
+
+                    <div class = "notification">
+                      <a style="background-color:transparent;" >
+                      <div (click) = "displayNotification_()" class = "notBtn" href = "#">
+                        <!--Number supports double digets and automaticly hides itself when there is nothing between divs -->
+                        <div class = "number">{{unreadnotifications.length}}</div>
+                        <i style="font-size: 40px;"  class="fa fa-bell"></i>
+                          <div class = "{{displayNotification ? 'box' : 'box-hide'}}">
+                            <div class = "display">
+                              <div class = "nothing"> 
+                                <i class="fas fa-child stick"></i> 
+                                <div class = "cent">Looks Like your all caught up!</div>
+                              </div>
+                              <div class = "cont"><!-- Fold this div and try deleting evrything inbetween -->
+
+
+                                
+                                 <div *ngFor = "let notif of notifications" class = "sec new">
+
+                                   <a *ngIf = "!isEmptyObject(notif.friendRequestNotification)"
+                                        href = "app/viewuser/friendrequests">
+                                        <div class = "profCont">
+                                        <img class = "profile" src = "https://c1.staticflickr.com/5/4007/4626436851_5629a97f30_b.jpg">
+                                            </div>
+                                        <div class = "txt">You have a friend request from <strong> {{notif.friendRequestNotification.userWhoSendReqeust}} </strong></div>
+                                        <div class = "txt sub">{{notif.date}}</div>
+                                   </a>
+
+
+                                   <a *ngIf = "!isEmptyObject(notif.requestAcceptedNotificationModel)"
+                                        href = "app/viewuser/friendrequests">
+                                        <div class = "profCont">
+                                        <img class = "profile" src = "https://c1.staticflickr.com/5/4007/4626436851_5629a97f30_b.jpg">
+                                            </div>
+                                        <div class = "txt"><strong> {{notif.requestAcceptedNotificationModel.useracceptedFriendReqeust}}</strong> accepted your friend request </div>
+                                        <div class = "txt sub">{{notif.date}}</div>
+                                   </a>
+
+
+                                   <a *ngIf = "!isEmptyObject(notif.announcmentModel)" href = "https://codepen.io/Golez/">
+                                        <div class = "profCont">
+                                        <img class = "profile" src = "https://c1.staticflickr.com/5/4007/4626436851_5629a97f30_b.jpg">
+                                            </div>
+                                        <div class = "txt">{{notif.date}}</div>
+                                        <div class = "txt sub">11/7 - 2:30 pm</div>
+                                    </a>
+                                </div>
+                             
+                               
+                             </div>
+                            </div>
+                         </div>
+                      </div>
+                        </a>
+                    </div>
+                    </div>
+
+
+
+
+
+                <div (click)="userProfile()" class="dropdown">
+                    <span>
+                        <div style="width: 50px; height: 50px; border-radius:50% ; background-color: red;">
+                            <img [src]="user.profilePic" alt="">
+                        </div>
+                    </span>
+                    <div class="dropdown-content">
+                        <li (click) = "userProfile()">Profile</li>
+                        <li (click) = "createPost()">Create Post</li>
+                        <li (click) = "updateProfile()">Settings</li>
+                        <li (click) = "logOut()">Sign Out</li>
+                    </div>
+
+                </div>
+                <a (click) = "logOut()">
+                    <span>Logout</span>
+                </a>
+            </div>
+        
+
+    </div>
+    <!-- <p style="font-size: 30px; color: white; letter-spacing: 2px;">{{item}}</p>
+
+
+    <button (click) = "addNewItem(adem)">Click</button> -->
+
+</div>
+

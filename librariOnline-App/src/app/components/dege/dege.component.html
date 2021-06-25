@@ -1,0 +1,32 @@
+<div class="course-outside-wrapper">
+
+    <div class="side left-container">
+        sdfsdfsdf
+    </div>
+    
+    <div class="center-main-container">
+        <div class="center-wrapper">
+    
+          
+    
+            <div class="posts">
+               
+                <ul class="w3-ul w3-card-4">
+                    <li *ngFor = "let dege of deget" class="w3-bar">
+                      <span (click) = "listCoursesFromDege(dege.id)"  class="w3-bar-item w3-button w3-white w3-xlarge w3-right">-></span>
+                      <img src="img_avatar2.png" class="w3-bar-item w3-circle w3-hide-small" style="width:85px">
+                      <div class="w3-bar-item">
+                        <span class="w3-large">{{dege.name}}</span><br>
+                        <span>Web Designer</span>
+                      </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    
+    </div>
+    
+    <div class="side right-container">
+       
+        </div>
+</div>

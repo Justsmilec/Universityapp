@@ -1,0 +1,39 @@
+<app-map 
+   [displayPopUp] = "showMapPopUp"
+   (callParent)="getMsgFromBaby($event)"
+   [mapurl] = "mapurl"
+></app-map>
+
+<div class="course-outside-wrapper">
+    <div class="side left-container">
+        sdfsdfsdf
+    </div>
+    
+    <div class="center-main-container">
+        <div class="center-wrapper">
+    
+            
+    
+
+    
+            <div class="posts">
+                <ul class="w3-ul w3-card-4">
+                    <li *ngFor = "let univ of universityList" class="w3-bar" (click)="displayMap(univ.mapURL)">
+                      <span  (click) = "listUnivFaculties(univ.id)" class="w3-bar-item w3-button w3-white w3-xlarge w3-right"><i class="fas fa-arrow-right"></i></span>
+                      <img src="assets/upt.png" class="w3-bar-item w3-circle w3-hide-small" style="width:85px">
+                      <div class="w3-bar-item">
+                        <span class="w3-large">{{univ.name}}</span><br>
+                        <span>{{univ.location}}</span>
+                      </div>
+                    </li>
+                </ul>
+    
+            </div>
+        </div>
+    
+    </div>
+    
+    <div class="side right-container">
+    
+    </div>
+</div>

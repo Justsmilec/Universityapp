@@ -1,0 +1,70 @@
+<div class="course-outside-wrapper">
+
+    <div class="side left-container">
+        sdfsdfsdf
+    </div>
+    
+    <div class="center-main-container">
+        <div class="center-wrapper">
+    
+          
+    
+            <div class="posts">
+               
+                
+                    <div>
+                        Subject: {{subject.name}}
+                    </div>
+                    <div>
+                        Professor: {{subject.professor}}
+                    </div>
+
+                    <div>
+                        Lecture Hall: {{subject.classRoomNumber}}
+                    </div>
+                    <div>
+                        Date: {{subject.date.dayOfWeek}}, {{subject.date.time}}
+                    </div>
+
+                    <div>
+                        FacultyName: {{subjectAdditionDetails.facultyname}}
+                    </div>
+
+                    <div>
+                        <button (click) = "dealwithsubjectAttending()">
+                            {{joinButtonText}}
+                        </button>
+                    </div>
+            </div>
+
+
+            <div class="map">
+               
+                
+                {{subjectAdditionDetails.facultymapURL}}    
+            
+            </div>
+
+
+
+            <div class="attenders">
+               
+                
+                    
+                    <div class="friends-list">
+                      
+                        <ul>
+                            <li *ngFor = "let student of usertoPass">
+                                <app-friendsingle-element [user] = "student"></app-friendsingle-element>                
+                            </li>
+                        </ul>              
+                    </div>
+            </div>
+        </div>
+    
+    </div>
+    
+    <div class="side right-container">
+       
+        </div>
+</div>

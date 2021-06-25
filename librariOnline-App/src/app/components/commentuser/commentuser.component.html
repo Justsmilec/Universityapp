@@ -1,0 +1,49 @@
+<div class="timeline-comment-box">
+    <div style="background-color: yellow; display: flex; align-items: center;">
+        <div class="user">
+            <img src="https://bootdey.com/img/Content/avatar/avatar3.png">
+        </div>
+        <div type="text" class="form-control rounded-corner">{{comment.comment}}</div>
+    </div>
+    <span class="input-group-btn p-l-10">
+        <div class="stats">
+            
+            <span (click)= "likecomment(comment.commentId)" class="fa-stack fa-fw stats-icon">
+            <i class="fa fa-circle fa-stack-2x text-danger"></i>
+            <i class="fa fa-heart fa-stack-1x fa-inverse t-plus-1"></i>
+            </span>
+            
+            <span class="stats-total">{{comment.likeonComment.length}} Likes</span>
+
+            <span style="float: right;" class="stats-right">
+                <span (click) = "toggleRepliesShow()" class="stats-text">{{comment.replies.length}} Comments</span>
+            </span>
+         </div>
+    </span>
+
+    <div class="{{displayReplies ? 'replies' : 'replies-hide'}}">
+        <li *ngFor= " let reply_ of comment.replies" style="background-color: brown; display: flex;">
+            <div class="user"><img src="https://bootdey.com/img/Content/avatar/avatar3.png"></div>
+    
+            <div class="txt" type="text" >{{reply_.reply.comment}}</div>
+                
+        </li>
+        
+    </div>
+    <!-- *ngFor = "let comment of comment.replies" -->
+    <div class="timeline-comment-box">
+        <div class="user"><img src="https://bootdey.com/img/Content/avatar/avatar3.png"></div>
+        <div class="input">
+            <form action="">
+                <div class="input-group">
+                    <input type="text" class="form-control rounded-corner" placeholder="Reply..." name="commentText"
+                        [(ngModel)]="commentText">
+                    <span class="input-group-btn p-l-10">
+                        <button (click)="addreplytoComment(comment.commentId)" class="btn btn-primary f-s-12 rounded-corner"
+                            type="button">Reply</button>
+                    </span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

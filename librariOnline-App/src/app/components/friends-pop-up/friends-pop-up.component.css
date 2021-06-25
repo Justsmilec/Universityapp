@@ -1,0 +1,28 @@
+.outter-cont-show{
+    position: absolute;
+    left: 50%;
+    top:2%;
+    transform: translate(-50%,0%);
+    width: 85%;
+    height: 80%;
+    background-color: rgb(75, 28, 28);
+    z-index: 900;
+    display:block;
+    visibility: visible;
+}
+.outter-cont-hide{
+    
+    display: none;
+
+}
+.exit-button{
+    width: 100%;
+    height: 5%;
+    background-color: red;
+}
+.friends-list{
+    margin-top:3%;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}

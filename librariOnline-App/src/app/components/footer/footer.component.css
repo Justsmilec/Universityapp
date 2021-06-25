@@ -1,0 +1,30 @@
+.footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    background-color: rgba(39, 39, 48, 0.829);
+}
+.list-container{
+    width: 50%;
+}
+ul{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+}
+ul li{
+    display: inline;
+    flex-wrap: nowrap;
+    width: 40%;
+    padding:4%;
+    background-color: rgb(155, 125, 125);
+    margin-left:10px ;
+}
+ul li:hover{
+    background-color:  rgba(140, 113, 113, 0.767);
+    cursor:pointer;
+}
+ul li span{
+    align-items: center;
+    align-content: center;
+}
