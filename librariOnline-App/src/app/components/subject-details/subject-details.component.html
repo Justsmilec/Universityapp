@@ -1,70 +1,71 @@
 <div class="course-outside-wrapper">
 
     <div class="side left-container">
-        sdfsdfsdf
     </div>
-    
+
     <div class="center-main-container">
         <div class="center-wrapper">
-    
-          
-    
+
+
+
             <div class="posts">
-               
-                
-                    <div>
-                        Subject: {{subject.name}}
-                    </div>
-                    <div>
-                        Professor: {{subject.professor}}
-                    </div>
 
-                    <div>
-                        Lecture Hall: {{subject.classRoomNumber}}
-                    </div>
-                    <div>
-                        Date: {{subject.date.dayOfWeek}}, {{subject.date.time}}
-                    </div>
 
-                    <div>
-                        FacultyName: {{subjectAdditionDetails.facultyname}}
-                    </div>
+                <div>
+                    Subject: {{subject.name}}
+                </div>
+                <div>
+                    Professor: {{subject.professor}}
+                </div>
 
-                    <div>
-                        <button (click) = "dealwithsubjectAttending()">
-                            {{joinButtonText}}
-                        </button>
-                    </div>
+                <div>
+                    Lecture Hall: {{subject.classRoomNumber}}
+                </div>
+                <div>
+                    Date: {{subject.date.dayOfWeek}}, {{subject.date.time}}
+                </div>
+
+                <div>
+                    FacultyName: {{subjectAdditionDetails.facultyname}}
+                </div>
+
+                <div>
+                    <button style="cursor: pointer; border-radius: 3px; background-color: rgb(148, 175, 121);"
+                        (click)="dealwithsubjectAttending()">
+                        {{joinButtonText}}
+                    </button>
+                </div>
             </div>
 
 
             <div class="map">
-               
-                
-                {{subjectAdditionDetails.facultymapURL}}    
-            
+
+                <iframe  width="100%" height="100%" style="border:0;margin-left: 2%;" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/place?key=AIzaSyC5vT0xShxmjkEySXJ--5ENnPtEweK2Bro
+                  &q=Space+Needle,Tirana">
+                </iframe>
+
             </div>
 
 
 
             <div class="attenders">
-               
-                
-                    
-                    <div class="friends-list">
-                      
-                        <ul>
-                            <li *ngFor = "let student of usertoPass">
-                                <app-friendsingle-element [user] = "student"></app-friendsingle-element>                
-                            </li>
-                        </ul>              
-                    </div>
+
+
+
+                <div class="friends-list">
+
+                    <ul style="list-style: none;">
+                        <li *ngFor="let student of usertoPass">
+                            <app-friendsingle-element [user]="student"></app-friendsingle-element>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    
+
     </div>
-    
+
     <div class="side right-container">
-       
-        </div>
+
+    </div>
 </div>

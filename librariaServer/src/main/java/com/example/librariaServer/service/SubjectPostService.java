@@ -1,14 +1,12 @@
 package com.example.librariaServer.service;
 
 
-import com.example.librariaServer.model.CommentModel;
-import com.example.librariaServer.model.LikeModel;
-import com.example.librariaServer.model.ReplyModel;
-import com.example.librariaServer.model.SubjectPostModel;
+import com.example.librariaServer.model.*;
 import com.example.librariaServer.repository.SubjectPostRepositroy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -16,10 +14,26 @@ public class SubjectPostService {
 
     @Autowired
     private SubjectPostRepositroy subjectPostRepositroy;
+    @Autowired
+    private UserService userService;
 
 
-    public List<SubjectPostModel> getAllPosts(){
-        return this.subjectPostRepositroy.findAll();
+    public List<SubjectPostModel> getAllPosts(String username){
+
+        List<SubjectPostModel> list  = this.subjectPostRepositroy.findAll();
+        List<Subject> tolist = this.userService.returnUsersSubjects(username);
+        List<SubjectPostModel> mylist = new ArrayList<SubjectPostModel>();
+        for(int i = 0;i<list.size();i++){
+            for(int j = 0;j<tolist.size();j++){
+                if(list.get(i).getSubjectId().equals(tolist.get(j).getId()))
+                {
+                    mylist.add(list.get(i));
+                }
+
+
+            }
+        }
+        return mylist;
     }
 
     public List<SubjectPostModel> get(String subject_id){
@@ -137,5 +151,39 @@ public class SubjectPostService {
         commentModelList.set(index,commentModel);
         post.setComments(commentModelList);
         return subjectPostRepositroy.save(post);
+    }
+
+
+    public void updatesubjectPost(String usertoChange,String newuser){
+        List<SubjectPostModel> allposts = subjectPostRepositroy.findAll();
+        for(int i = 0;i<allposts.size();i++){
+            SubjectPostModel newelement = allposts.get(i);
+
+
+            for(int j = 0;j<newelement.getLikes().size();j++) {
+                if(newelement.getLikes().get(j).getUserWholiked().equals(usertoChange))
+                {
+                    newelement.getLikes().get(j).setUserWholiked(newuser);
+                }
+            }
+
+            for(int j = 0;j<newelement.getComments().size();j++) {
+                if(newelement.getComments().get(j).getUserwhocommented().equals(usertoChange))
+                {
+                    newelement.getComments().get(j).setUserwhocommented(newuser);
+                }
+            }
+
+//            for(int j = 0;j<newelement.getComments().size();j++) {
+//                if(newelement.getComments().get(j).getUserWholiked().equals(usertoChange))
+//                {
+//                    newelement.getLikes().get(j).setUserWholiked(newuser);
+//                }
+//            }
+
+            allposts.set(i,newelement);
+            subjectPostRepositroy.save(allposts.get(i));
+
+        }
     }
 }

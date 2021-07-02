@@ -14,7 +14,7 @@
 .profile{
     float: left;
     width: 30%;
-    background-color: blue;
+    background-color: rgb(71, 71, 114);
     display: flex;
     align-items: center;
     border-bottom-left-radius: 8px;
@@ -36,7 +36,7 @@
 }
 .follow-button{
     margin-right: 10%;
-    background-color: rgb(39, 81, 218);
+    background-color: rgba(65, 80, 131, 0.849);
     padding: 1.5%;
     font-size: 25px;
     letter-spacing: 0.8px;

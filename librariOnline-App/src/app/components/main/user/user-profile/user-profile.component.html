@@ -4,7 +4,7 @@
    [users] = "user"
 ></app-friends-pop-up>                
 
-<div  class="container" style="background-color: aqua;">
+<div  class="container" style="background-color: rgb(101, 114, 114);">
 
     <div class="row">
        <div class="col-md-12">
@@ -19,7 +19,7 @@
                       <div class="profile-header-info">
                          <h4 class="m-t-10 m-b-5">{{user.name}}</h4>
                          <p class="m-b-10">{{user.username}}</p>
-                         <a href="#" class="btn btn-sm btn-info mb-2">Edit Profile</a>
+                         <a (click)="editProfile()" class="btn btn-sm btn-info mb-2">Edit Profile</a>
                       </div>
                    </div>
                    <ul class="profile-header-tab nav nav-tabs">

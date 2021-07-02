@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Notification1 } from 'src/app/model/notification/notification';
+import { Subjectpost } from 'src/app/model/posts/subjectpost';
 import { User } from 'src/app/model/user';
 import { AuthenticationService } from 'src/app/service/authentication.service';
 import { NotificationService } from 'src/app/service/notification.service';
@@ -17,6 +18,7 @@ import { UserService } from 'src/app/service/user.service';
 export class HeaderComponent implements OnInit {
   @Input() item: any;
   @Output() newItemEventi = new EventEmitter<string>();
+  @Output() searchTextEmitter = new EventEmitter<string>();
   constructor(private zone: NgZone,private notificationService:NotificationService, private http: HttpClient, private userService: UserService, private authentocationService: AuthenticationService, private router: Router, private route: ActivatedRoute) { }
 
   user: any;
@@ -24,6 +26,7 @@ export class HeaderComponent implements OnInit {
   friendRequestNotifications: Array<any> = [];
   unreadnotifications: Array<Notification1> = [];
   displayNotification: boolean = false;
+  searchtext:string = '';
   ngOnInit(): void {    
     let username = this.authentocationService.getLoggedInUserName();
     
@@ -98,6 +101,13 @@ export class HeaderComponent implements OnInit {
   }
 
 
+  searchFunction(){
+    console.log("----::: "+ this.searchtext);
+    this.searchTextEmitter.emit(this.searchtext);
+    this.router.navigate(['/app/searchcourse',this.searchtext])
+
+    
+  }
 
   displayNotification_(){
     this.displayNotification = !this.displayNotification;

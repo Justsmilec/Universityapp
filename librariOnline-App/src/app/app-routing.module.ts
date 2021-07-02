@@ -32,6 +32,7 @@ const routes: Routes = [
       { path: 'view', component: ViewUserComponent, canActivate: [AuthGaurdService]},
       { path: 'user/createpost', component: CreatePostComponent, canActivate: [AuthGaurdService]},
       { path: 'user/updateprofile', component: EditprofileComponent, canActivate: [AuthGaurdService]},
+      { path: 'searchcourse/:searchtext', component: CourseComponent, canActivate: [AuthGaurdService]},
 
       { path: 'view_course', component: DetailCourseComponent, canActivate: [AuthGaurdService]},
       { path: 'view_universities', component: UniversityListComponent, canActivate: [AuthGaurdService]},

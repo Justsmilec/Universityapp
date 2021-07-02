@@ -60,6 +60,9 @@ export class UserProfileComponent implements OnInit {
 
   }
 
+  editProfile(){
+    // Edit profile 
+  }
   getMsgFromBaby($event:boolean) {
     this.showFriendsPopUp = $event;
   }

@@ -145,11 +145,22 @@ public class UserPostService {
             }
 
             for(int j = 0;j<newelement.getComments().size();j++) {
-                if(newelement.getComments().get(j).getUserWholiked().equals(usertoChange))
+                if(newelement.getComments().get(j).getUserwhocommented().equals(usertoChange))
                 {
-                    newelement.getLikes().get(j).setUserWholiked(newuser);
+                    newelement.getComments().get(j).setUserwhocommented(newuser);
                 }
             }
+
+//            for(int j = 0;j<newelement.getComments().size();j++) {
+//                if(newelement.getComments().get(j).getUserWholiked().equals(usertoChange))
+//                {
+//                    newelement.getLikes().get(j).setUserWholiked(newuser);
+//                }
+//            }
+
+            allposts.set(i,newelement);
+            userPostRepository.save(allposts.get(i));
+
         }
     }
 }

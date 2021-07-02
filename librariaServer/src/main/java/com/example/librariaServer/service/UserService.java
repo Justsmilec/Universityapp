@@ -29,6 +29,8 @@ public class UserService {
     private DegeService degeService;
     @Autowired
     private UserPostService userPostService;
+    @Autowired
+    private SubjectPostService subjectPostService;
 //    @Autowired
 //    private PasswordEncoder passwordEncoder;
 
@@ -168,7 +170,7 @@ public class UserService {
         //shto notification te useri qe dergoi kerkesen ne fillim
         makeusers_as_friends(usernamewhoaccepted,receiver);
         unsendToPendingFriends(usernamewhoaccepted,receiver);
-        return appendfriendrequestacceptednotification(usernamewhoaccepted,receiver);
+        return appendfriendrequestacceptednotification(receiver,usernamewhoaccepted);
 
     }
 
@@ -205,6 +207,9 @@ public class UserService {
         usertoupdate.setUsername(obj.newname);
         usertoupdate.setProfilePic(obj.newurl);
 
+
+        this.updateUserPostDatabase(usertochange,obj.newname);
+        this.subjectService.updatesubjectUsers(usertochange,obj.newname);
         //update users posts userUsername
         return userRepository.save(usertoupdate);
     }
@@ -212,9 +217,25 @@ public class UserService {
 
     //Helper for updating userprofile
     public void updateUserPostDatabase(String usertochange,String newuser){
-
+        this.userPostService.updateuserPost(usertochange,newuser);
+        this.subjectPostService.updatesubjectPost(usertochange,newuser);
     }
 
+
+    public List<Subject> returnUsersSubjects(String username){
+        List<Subject> alllist = this.subjectService.getSubjects();
+        List<Subject> mylist = new ArrayList<Subject>();
+        for(int i = 0;i<alllist.size();i++){
+            for(int j = 0;j<alllist.get(i).getStudents().size();j++)
+                if(alllist.get(i).getStudents().get(j).getUsername().equals(username))
+                {
+                    mylist.add(alllist.get(i));
+                    break;
+                }
+        }
+
+        return mylist;
+    }
 
 }
 

@@ -99,13 +99,15 @@
         </div>
 
         <div>
-            <span class="required">Image</span>
-            <div class="col-md-6">
-              <input type="file" (change)="updateFile($event)">
-            </div>
-                  <div class="col-md-12">
-                      <img [src]="url" alt="">                   
-                  </div>
+            <label for="" class="label-email">
+                <input type="file"  tabindex="1"  (change)="updateFile($event)">
+                <span class="required">Image</span>
+           
+                  
+            </label>
+            <div  class="col-md-12">
+              <img style="width: 120px; height: 120px; border:none"  [src]="url" alt="">                   
+          </div>
         </div>
 
       </div>

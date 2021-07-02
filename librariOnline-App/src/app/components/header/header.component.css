@@ -2,18 +2,19 @@
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    background-color: rgba(39, 39, 48, 0.829);
+    background-color: #282d32;
     padding: 0.1%;
 }
 .profile{
     width: 30%;
     height: 80px;
+    margin-left: 2%;
+    display: flex;
     
 }
 .name-text{
     font-size:35px;
     font-weight: 600;
-    color: white;
     
 }
 img{
@@ -29,16 +30,17 @@ img{
     justify-content: space-between;
     width: 200px;
     height: 100%;
-    margin-left: 2%;
-    padding-left: 2%;
-    padding-right: 4%;
+    margin-left: 0%;
+    padding-left: 0%;
+    padding-right: 0%;
 }
 .img-cont{
     position: relative;
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     background-color: rgb(128, 0, 100);
     border-radius: 50%;
+    cursor: pointer;
 }
 .list-container{
     width: 100%;
@@ -53,6 +55,7 @@ img{
     width: 50%;
     margin-left: 18%;
 }
+
 .list-container input[type=text] {
     float: left;
     width: 80%;
@@ -64,6 +67,15 @@ img{
     font-size: 17px;
   }
 
+  .list-container input[type=submit] {
+    padding: 15px 2%;
+    border: none;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-left: 2px;
+    font-size: 17px;
+    cursor: pointer;
+  }
   .right-nav{
       display: flex;
       justify-content: flex-end;
@@ -71,6 +83,9 @@ img{
       width: 50%;
       margin-right: 6%;
 
+  }
+  .fa-bell{
+    color: rgb(235, 234, 234);
   }
 
   /* DropDown */
@@ -81,32 +96,39 @@ img{
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #dddcdc;
-    min-width: 160px;
+    background-color: #aaa8a8d9;
+    min-width: 190px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    padding: 12px 22px;
+    padding: 8px 16px;
     z-index: 1;
   }
   .dropdown-content li {
     list-style: none;
-    background-color: rgba(235, 232, 229, 0.857);
+    background-color: rgba(122, 109, 124, 0.857);
     border-radius: 10px;
-    padding: 10px 4px;
-    margin-top: 3px;
-    margin-left: -16px;
+    padding: 9px 5px;
+    margin-top: 8px;
     font-size: 18px;
     font-weight: 400;
+    letter-spacing: 0.4px;
+    cursor: pointer;
+  }
+  .dropdown-content li span{
+    border-radius: 10px;
+    padding: 13px 5px;
+    color: rgba(14, 14, 33, 0.974);
+    font-weight: 500;
+    font-size: 18px;
+
     letter-spacing: 0.4px;
   }
   .dropdown-content li:hover {
     list-style: none;
-    background-color: rgba(207, 204, 200, 0.857);
     border-radius: 10px;
-    padding: 10px 4px;
-    margin-top: 3px;
-    margin-left: -20px;
+    background-color: rgba(95, 83, 97, 0.857);
+   
   }
   .dropdown:hover .dropdown-content {
     display: block;
@@ -174,6 +196,7 @@ a{
     display: inline;
     float: right;
     position: relative;
+    margin-right: 3%;
   }
   
   .notification{
@@ -204,7 +227,8 @@ a{
   
   .notBtn{
     transition: 0.5s;
-    cursor: pointer
+    cursor: pointer;
+    margin-right: 10%;
   }
   
   .fas{
@@ -343,5 +367,7 @@ a{
     background-color: #BFBFBF;
   }
   
+  
+
   
   

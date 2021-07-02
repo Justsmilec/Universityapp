@@ -24,16 +24,23 @@ public class SubjectPostController {
     private SubjectPostService subjectPostService;
 
 
-    @GetMapping("/posts/subjects/get")
-    public List<SubjectPostModel> getPosts(){
-        return subjectPostService.getAllPosts();
+    @GetMapping("/posts/subjects/get/{username}")
+    public List<SubjectPostModel> getPosts(@PathVariable String username){
+        return subjectPostService.getAllPosts(username);
     }
 
-    @MessageMapping("/get")
+    @MessageMapping("/get/{username}")
     @SendTo("/topic/appliances/get")
-    public List<SubjectPostModel> getAllSubjectPosts() {
+    public List<SubjectPostModel> getAllSubjectPosts(@DestinationVariable String username) {
 
-        return subjectPostService.getAllPosts();
+        return subjectPostService.getAllPosts(username);
+    }
+
+    @MessageMapping("/get/search/{username}/{searchtext}")
+    @SendTo("/topic/appliances/get")
+    public List<SubjectPostModel> getAllSubjectPostsSearch(@DestinationVariable String username, @DestinationVariable String searchtext) {
+
+        return subjectPostService.getAllPosts(username);
     }
 
     @MessageMapping("/getsingle/{postid}")
@@ -42,10 +49,10 @@ public class SubjectPostController {
 
         return subjectPostService.getbyId(postid);
     }
-    @PostMapping("/posts/subjects/save")
-    public List<SubjectPostModel> savePost(@RequestBody SubjectPostModel subjectpostmodel){
+    @PostMapping("/posts/subjects/save/{username}")
+    public List<SubjectPostModel> savePost(@PathVariable String username,@RequestBody SubjectPostModel subjectpostmodel){
         subjectPostService.save(subjectpostmodel);
-        return subjectPostService.getAllPosts();
+        return subjectPostService.getAllPosts(username);
     }
 
     @MessageMapping("/add/comment/{postid}")

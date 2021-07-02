@@ -1,6 +1,7 @@
 package com.example.librariaServer.service;
 
 import com.example.librariaServer.model.Subject;
+import com.example.librariaServer.model.SubjectPostModel;
 import com.example.librariaServer.model.UserEntity;
 import com.example.librariaServer.repository.DegeRepository;
 import com.example.librariaServer.repository.SubjectRepository;
@@ -87,5 +88,33 @@ public class SubjectService {
     }
 
 
+
+    public void updatesubjectUsers(String usertoChange,String newuser){
+        List<Subject> allposts = subjectRepository.findAll();
+        for(int i = 0;i<allposts.size();i++){
+            Subject newelement = allposts.get(i);
+
+
+            for(int j = 0;j<newelement.getStudents().size();j++) {
+                if(newelement.getStudents().get(j).getUsername().equals(usertoChange))
+                {
+                    newelement.getStudents().get(j).setUsername(newuser);
+                }
+            }
+
+
+
+//            for(int j = 0;j<newelement.getComments().size();j++) {
+//                if(newelement.getComments().get(j).getUserWholiked().equals(usertoChange))
+//                {
+//                    newelement.getLikes().get(j).setUserWholiked(newuser);
+//                }
+//            }
+
+            allposts.set(i,newelement);
+            subjectRepository.save(allposts.get(i));
+
+        }
+    }
 
 }

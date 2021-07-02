@@ -40,7 +40,6 @@ export class FriendsingleElementComponent implements OnInit {
           this.zone.run(() => {
             this.userCompleteObject = res;
 
-            console.log("Length: " + "--"+ this.userCompleteObject.username+" ---",  this.userCompleteObject.pendingFriends.length);
         
             for(let i = 0; i< this.loggedInUser.pendingFriends.length;i++){
               if(this.loggedInUser.pendingFriends[i] == this.user.username){

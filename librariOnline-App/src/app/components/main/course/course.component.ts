@@ -17,6 +17,7 @@ export class CourseComponent implements OnInit {
   title:string = "";
   tags:Array<string> = [];
 
+  search: string = '';
   user:any = '';
 
   subjectPosts:Array<Subjectpost> = [];
@@ -27,10 +28,22 @@ export class CourseComponent implements OnInit {
     this.title = "I am working on this Project Alone";
     this.tags = new Array<string>("#code","#angular","#java");
     this.sendToWebsocket();
+
+    if(this.route.snapshot.paramMap.get("seachtext") != ''){
+      console.log("hahahahha qr");
+      let l = this.route.snapshot.paramMap.get("seachtext");
+      this.sendToWebsocketOnSearch(l);
+    }
   }
 
   async sendToWebsocket() {
-    this.subjectpostwebsocket.onSend("/topic/get");
+    this.subjectpostwebsocket.onSend(`/topic/get/${this.authenticationService.getLoggedInUserName()}`);
+    this.subjectPosts = await this.subjectpostwebsocket.getList();
+     console.log("helloooo  ", this.subjectpostwebsocket.subjectsposts);
+
+  }
+  async sendToWebsocketOnSearch(searchtext:any) {
+    this.subjectpostwebsocket.onSend(`/topic/get/search/${this.authenticationService.getLoggedInUserName()}/${searchtext}`);
     this.subjectPosts = await this.subjectpostwebsocket.getList();
      console.log("helloooo  ", this.subjectpostwebsocket.subjectsposts);
 

@@ -13,6 +13,7 @@ export class MainComponent implements OnInit {
   @Input() dataTakenFromParentToMain: string = '';
   users: User[] = [];
 
+  @Input() searchText: string = '';
   constructor(private userService: UserService,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -26,6 +27,12 @@ export class MainComponent implements OnInit {
 
   clickDiv(){
     console.log('---------');
+    
+  }
+
+  searchTextTomain(event:string){
+    console.log("--in main -----------:: "+ event);
+    this.searchText = event;
     
   }
 

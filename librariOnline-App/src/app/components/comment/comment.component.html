@@ -1,9 +1,9 @@
 <div class="timeline-comment-box">
-    <div style="background-color: yellow; display: flex; align-items: center;">
+    <div style="display: flex; align-items: center;">
         <div class="user">
             <img src="https://bootdey.com/img/Content/avatar/avatar3.png">
         </div>
-        <div type="text" class="form-control rounded-corner">{{comment.comment}}</div>
+        <div  class="form-control rounded-corner">{{comment.comment}}</div>
     </div>
     <span class="input-group-btn p-l-10">
         <div class="stats">
@@ -22,10 +22,10 @@
     </span>
 
     <div class="{{displayReplies ? 'replies' : 'replies-hide'}}">
-        <li *ngFor= " let reply_ of comment.replies" style="background-color: brown; display: flex;">
+        <li *ngFor= "let reply_ of comment.replies" style=" display: flex;">
             <div class="user"><img src="https://bootdey.com/img/Content/avatar/avatar3.png"></div>
     
-            <div class="txt" type="text" >{{reply_.reply.comment}}</div>
+            <p class="txt" >{{reply_.reply.comment}}</p>
                 
         </li>
         

@@ -23,7 +23,7 @@ export class SubjectDetailsComponent implements OnInit {
   usertoPass: Array<User> = []
   facultyofsubject: string = '';
   joinButtonText: string = "Join";
-  joinButtonStatus: boolean = true;  // false is -> join is enable   true -> drop is enable 
+  joinButtonStatus: boolean = false;  // false is -> join is enable   true -> drop is enable 
   constructor(private zone: NgZone, private authenticationService: AuthenticationService,private userService: UserService,private http: HttpClient,private degeService: DegeService,private facultyService: FacultyService,private subjectService:SubjectserviceService ,private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -43,7 +43,7 @@ export class SubjectDetailsComponent implements OnInit {
         this.removeUserFromList();
 
         this.joinButtonStatus = this.subjectService.checkifExistStudent(this.subject,this.authenticationService.getLoggedInUserName());
-        if(this.joinButtonStatus)
+        if(!this.joinButtonStatus)
           this.joinButtonText = "DROP"
         else
           this.joinButtonText = "JOIN"

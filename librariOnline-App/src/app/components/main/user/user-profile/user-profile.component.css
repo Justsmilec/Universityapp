@@ -1,13 +1,17 @@
 .container{
     position: relative;
     width: 75%;
-    left: 50%;
+    left: 35%;
     transform: translate(-50%,0%);
 
 }
 .profile-header {
     position: relative;
     overflow: hidden
+}
+
+.profile-header li{
+    cursor: pointer;
 }
 
 .profile-header .profile-header-cover {
